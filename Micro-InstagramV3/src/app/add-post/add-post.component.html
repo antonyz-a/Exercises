@@ -1,0 +1,48 @@
+
+<br>
+<h1>{{ isInEditMode ? 'Edit' : 'Add' }} your post</h1>
+<div class="container-fluid" style="text-align: center;">
+    <form class="form" [formGroup]="postForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group row">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Title</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Title"
+              formControlName="title"
+              inputRequired>
+            </div>
+            <br>
+            <br>
+            <br>
+
+            <label for="imageUrl" class="col-sm-2 col-form-label col-form-label-lg">Image Url</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-lg" id="imageUrl" placeholder="image Url"
+              formControlName="url"
+              inputRequired>
+            </div>
+            <br>
+            <br>
+            <br>
+
+            <label for="thumbnailUrl" class="col-sm-2 col-form-label col-form-label-lg">Image Url</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-lg" id="thumbnailUrl" placeholder="Thumbnail Url"
+              formControlName="thumbnailUrl"
+              inputRequired>
+              <br>
+            </div>
+          </div>
+          <button
+        type="submit"
+        class="btn btn-success btn-lg" style="margin-right: 10px;"
+        [disabled]="postForm.invalid"
+        >{{isInEditMode ? 'Edit' : 'Add'}} post
+    </button>
+    <button type="button" (click)="onBack()" class="btn btn-secondary btn-lg">Back</button>
+
+
+    </form>
+    <br>
+
+</div>
