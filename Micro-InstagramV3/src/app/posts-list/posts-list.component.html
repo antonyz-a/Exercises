@@ -1,0 +1,50 @@
+
+<div class="container-fluid">
+    
+    <br>
+    <nav class="navbar navbar" style="color: #212529;">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" (keyup)="filterPosts($event)" placeholder="Search By Name" aria-label="Search" #searchInput>
+          <h6 *ngIf="searchInput.value">Filtered By:  {{ searchInput.value }}</h6>
+          <h6 *ngIf="!searchInput.value">Filtered By:  {{ filter }}</h6>
+        </form>
+       
+      </nav>
+    
+    <br>
+    <hr>
+    <h2>Posts</h2>
+    <br>
+
+    <div class="row">
+        <div class="col-md-3" *ngFor="let post of filteredPosts | slice: firstPages:lastPages">
+            <div class="card border-dark" style="border: none;">
+                <div id="header" class="card-header bg-transparent border-dark" style="min-height: 97px;">{{ post.title }}</div>
+                <div class="card-body card-img" style="padding: 0rem;">
+                  <img class="card-img-middle" [src]="post.thumbnailUrl" style="width: 150px; height: 150px; margin-left: 80px;">
+                </div>
+                <div class="card-footer bg-transparent border-dark">
+                    <a [routerLink]="['/home/posts', post.id]" class="btn btn-outline-primary btn-sm" style="margin-right: 15px; margin-left: 50px;">View</a>
+                    
+                    <a [routerLink]="['/home/add-post', post.id]" class="btn btn-outline-warning btn-sm" style="margin-right: 15px;">Edit</a>
+                    <a (click)="deletePost(post.id)" class="btn btn-outline-danger btn-sm">Delete</a>
+                </div>
+              </div>
+            <br>
+            <hr>
+            
+          </div>
+          <br>
+          <br>
+          <div class="container" id="buttons">
+            <button class="btn btn-primary btn-sm" style="margin-right: 40px;" (click)="onFirst()">Go to First page</button>
+            <button class="btn btn-primary btn-md" style="margin-right: 15px;" (click)="onPrevious()">Previous</button>
+            <button class="btn btn-primary btn-md" (click)="onNext()">Next</button>
+            <button class="btn btn-primary btn-sm" style="margin-left: 40px;" (click)="onLast()">Go to Last page</button>
+
+          </div>
+        
+        <p *ngIf="!posts?.length">Loading...</p>
+    </div>
+</div>
+

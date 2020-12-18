@@ -1,0 +1,29 @@
+* {
+    background: #212529;
+}
+
+h6 {
+    color: white;
+}
+#header {
+    color: white;
+    text-align: center;
+    padding: 0px;
+    
+    
+}
+hr {
+    
+    background: purple;
+    
+}
+h2 {
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+}
+
+#buttons {
+    text-align: center;
+    
+}
