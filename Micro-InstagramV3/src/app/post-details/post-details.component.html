@@ -1,0 +1,20 @@
+
+<div class="container-fluid" style="text-align: center;">
+    <br>
+    <h3>{{post?.title}}</h3>
+    <br>
+    
+
+    <figure class="figure">
+        <img [src]="post?.url" [alt]="post?.title" style="width: 600px; height: 600px;" class="figure-img img-fluid rounded">
+        <figcaption class="figure-caption"><h5>Thumbnail Url:</h5> {{post?.thumbnailUrl}}</figcaption>
+        <br>
+        <button type="button" (click)="onBack()" class="btn btn-outline btn-secondary btn-lg" style="margin-right: 10px;">Back</button>   
+         
+        <button type="button" id="buton" [routerLink]="['/home/add-post', post.id]" class="btn btn-outline btn-warning btn-lg">Edit</button>    
+
+    </figure>
+      <br>
+
+</div>
+
